@@ -7,7 +7,7 @@ interface setting {
   contentType?: number;
 }
 
-export const apiServices = async (setting: setting) => {
+export const apiServices = (setting: setting) => {
   try {
     const config = useRuntimeConfig();
 
@@ -15,7 +15,6 @@ export const apiServices = async (setting: setting) => {
       baseURL: config.public.API_BASE_URL,
       headers: getHeaders(setting.typeHeader),
       method: setting.method,
-      body: "",
     } as any;
 
     if (setting.method !== "GET") {
@@ -37,9 +36,7 @@ export const apiServices = async (setting: setting) => {
 
     console.log(setting.url, options);
 
-    const data = await useFetch(setting.url, options);
-
-    return data;
+    return useFetch(setting.url, options);
   } catch (error) {}
 };
 
@@ -51,11 +48,13 @@ export const getHeaders = (type: any) => {
 
   if (type === "auth") {
     headers = {
-      [`X-${config.public.SHORT_NAME.toUpperCase()}-Auth-Token`]: authToken,
+      [`X-${config.public.SHORT_NAME.toUpperCase()}-Auth-Token`]:
+        authToken || "",
     };
   } else {
     headers = {
-      [`X-${config.public.SHORT_NAME.toUpperCase()}-Access-Token`]: accessToken,
+      [`X-${config.public.SHORT_NAME.toUpperCase()}-Access-Token`]:
+        accessToken || "",
     };
   }
 
