@@ -6,6 +6,7 @@ export default {
     ops: "Operador",
   },
   title: {
+    welcome: "¡Bienvenido!",
     login: "Iniciar sesión",
     forgotPassword: "Recuperar contraseña",
     validateCode: "Verificar código",
@@ -76,6 +77,7 @@ export default {
     },
   },
   text: {
+    login: "Por favor digita tu correo electrónico",
     forgotPassword:
       "Por favor escriba su correo electrónico, le enviaremos un código de verificación",
     validateCode:
