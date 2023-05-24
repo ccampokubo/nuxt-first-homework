@@ -32,7 +32,7 @@ export default {
   button: {
     login: "Iniciar sesión",
     forgotPassword: "¿Olvidaste tu contraseña?",
-    sendCode: "Enviar código",
+    sendCode: "Enviar",
     resendCode: "Volver a enviar código",
     validate: "Verificar",
     reset: "Restablecer",
@@ -79,7 +79,7 @@ export default {
   text: {
     login: "Por favor digita tu correo electrónico",
     forgotPassword:
-      "Por favor escriba su correo electrónico, le enviaremos un código de verificación",
+      "Por favor ingresa tu correo, enviaremos un código para que puedas restablecer tu contraseña.",
     validateCode:
       "Hemos enviado un código de verificación a tu correo, por favor escribe a continuación",
     changePassword:
