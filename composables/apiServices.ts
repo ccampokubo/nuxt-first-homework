@@ -1,3 +1,5 @@
+import type { UseFetchOptions } from "nuxt/app";
+
 interface setting {
   method?: string;
   typeHeader?: string;
@@ -7,11 +9,18 @@ interface setting {
   contentType?: number;
 }
 
+interface responseApi {
+  code: number;
+  message: string;
+  data?: object;
+  status: boolean;
+}
+
 export const apiServices = (setting: setting) => {
   try {
     const config = useRuntimeConfig();
 
-    const options = {
+    const options: UseFetchOptions<unknown> = {
       baseURL: config.public.API_BASE_URL,
       headers: getHeaders(setting.typeHeader),
       method: setting.method,
@@ -26,10 +35,16 @@ export const apiServices = (setting: setting) => {
         });
 
         setting.data = formData;
-        options["Content-Type"] = "multipart/form-data";
+        options.headers = {
+          ...options.headers,
+          "Content-Type": "multipart/form-data",
+        };
         options.body = setting.data;
       } else {
-        options["Content-Type"] = "application/json";
+        options.headers = {
+          ...options.headers,
+          "Content-Type": "application/json",
+        };
         options.body = JSON.stringify(setting.data);
       }
     }
@@ -40,7 +55,7 @@ export const apiServices = (setting: setting) => {
   } catch (error) {}
 };
 
-export const getHeaders = (type: any) => {
+export const getHeaders = async (type: any) => {
   const config = useRuntimeConfig();
   const accessToken = useCookie("accessToken").value;
   const authToken = useCookie("authToken").value;
@@ -54,7 +69,7 @@ export const getHeaders = (type: any) => {
   } else {
     headers = {
       [`X-${config.public.SHORT_NAME.toUpperCase()}-Access-Token`]:
-        accessToken || "",
+        accessToken || (await getAccessToken()),
     };
   }
 
@@ -63,13 +78,28 @@ export const getHeaders = (type: any) => {
 
 export const getAccessToken = async () => {
   const config = useRuntimeConfig();
+  let accessToken = useCookie("accessToken").value;
 
-  const shortName = config.public.SHORT_NAME;
+  try {
+    if (!accessToken) {
+      const shortName = config.public.SHORT_NAME;
 
-  const result = await apiServices({
-    method: "GET",
-    url: `${shortName}/generate-access-token`,
-  });
+      const result = (await apiServices({
+        method: "GET",
+        url: `${shortName}/generate-access-token`,
+      })) as any;
 
-  console.log(result);
+      const { data } = result;
+
+      console.log(data._value);
+
+      if (data._value.code === 100) {
+        accessToken = data._value.data.accessToken;
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  return accessToken;
 };

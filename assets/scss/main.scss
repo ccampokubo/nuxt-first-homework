@@ -2,3 +2,15 @@
 @import "primevue/resources/primevue.css";
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
+
+@import "layouts/login.scss";
+
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  .p-component {
+    font-size: 16px;
+  }
+}

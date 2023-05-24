@@ -1,9 +1,5 @@
-<script setup>
-import { onMounted } from "vue";
-
-onMounted(async () => {
-  await getAccessToken();
-});
+<script setup lang="ts">
+definePageMeta({ layout: "login" });
 </script>
 <template>
   <div class="flex">
