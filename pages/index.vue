@@ -4,6 +4,8 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
 
 definePageMeta({ layout: "login" });
 
@@ -24,8 +26,32 @@ const iconPassword = ref(false);
 
 // methods
 const onSubmit = handleSubmit(async (values) => {
-  console.log(values, null, 2);
+  const formData = { ...values };
+  formData.password = enc(formData.password);
+  formData.iv = formData.password.iv;
+  formData.password = formData.password.password;
+  formData.platform = "backoffice";
+  formData.version = "1.0.0";
+  formData.pushToken = "0";
+  formData.type = "lc";
+
+  const result = await apiServices({
+    method: "POST",
+    url: "onboarding/login",
+    data: formData,
+  });
+
+  console.log(result);
 });
+
+const show = () => {
+  toast.add({
+    severity: "info",
+    summary: "Info",
+    detail: "Message Content",
+    life: 3000,
+  });
+};
 </script>
 <template>
   <div class="card-login">

@@ -49,13 +49,11 @@ export const apiServices = (setting: setting) => {
       }
     }
 
-    console.log(setting.url, options);
-
     return useFetch(setting.url, options);
   } catch (error) {}
 };
 
-export const getHeaders = async (type: any) => {
+export const getHeaders = (type: any) => {
   const config = useRuntimeConfig();
   const accessToken = useCookie("accessToken").value;
   const authToken = useCookie("authToken").value;
@@ -69,32 +67,32 @@ export const getHeaders = async (type: any) => {
   } else {
     headers = {
       [`X-${config.public.SHORT_NAME.toUpperCase()}-Access-Token`]:
-        accessToken || (await getAccessToken()),
+        accessToken || "",
     };
   }
 
   return headers;
 };
 
-export const getAccessToken = async () => {
+export const getAccessToken = () => {
   const config = useRuntimeConfig();
-  let accessToken = useCookie("accessToken").value;
+  let accessToken = useCookie<string>("accessToken");
 
   try {
-    if (!accessToken) {
+    if (!accessToken.value) {
       const shortName = config.public.SHORT_NAME;
 
-      const result = (await apiServices({
+      const result = apiServices({
         method: "GET",
         url: `${shortName}/generate-access-token`,
-      })) as any;
+      }) as any;
 
       const { data } = result;
 
       console.log(data._value);
 
       if (data._value.code === 100) {
-        accessToken = data._value.data.accessToken;
+        accessToken.value = data._value.data.accessToken;
       }
     }
   } catch (error) {
