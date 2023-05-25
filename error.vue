@@ -1,5 +1,8 @@
 <template>
-  <button @click="handleError">Clear errors</button>
+  <div>
+    {{ error }}
+    <button @click="handleError">Clear errors</button>
+  </div>
 </template>
 
 <script setup>

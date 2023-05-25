@@ -1,18 +1,17 @@
-import * as cryptoJs from "crypto-js";
+import CryptoJS from "crypto-js";
 
 export const enc = (str: string) => {
   const config = useRuntimeConfig();
 
-  const secretKey = cryptoJs.enc.Utf8.parse(config.public.secret);
+  const iv = CryptoJS.lib.WordArray.random(16).toString(CryptoJS.Utf8);
 
-  const iv = cryptoJs.lib.WordArray.random(16).toString(cryptoJs.Utf8);
-  const ivBytes = cryptoJs.enc.Hex.parse(iv);
+  const key = CryptoJS.enc.Utf8.parse(config.public.secret);
+  const ivBytes = CryptoJS.enc.Hex.parse(iv);
 
-  return {
-    iv,
-    password: cryptoJs.AES.encrypt(str, secretKey, {
-      iv: ivBytes,
-      mode: cryptoJs.mode.CBC,
-    }).toString(),
-  };
+  const ciphertext = CryptoJS.AES.encrypt(str, key, {
+    iv: ivBytes,
+    mode: CryptoJS.mode.CBC,
+  }).toString();
+
+  return { iv, password: ciphertext };
 };

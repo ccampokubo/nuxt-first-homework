@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   // config envs
   runtimeConfig: {
     public: {
-      secret: process.env.SECRET,
+      secret: process.env.SECRET_KEY,
       API_BASE_URL: process.env.API_URL,
       SHORT_NAME: process.env.SHORT_NAME,
     },

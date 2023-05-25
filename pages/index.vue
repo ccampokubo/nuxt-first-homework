@@ -2,6 +2,7 @@
 import { ref } from "vue";
 const { t } = useI18n();
 const localePath = useLocalePath();
+const router = useRouter();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useToast } from "primevue/usetoast";
@@ -34,7 +35,7 @@ const onSubmit = handleSubmit(async (values) => {
   formData.platform = "backoffice";
   formData.version = "1.0.0";
   formData.pushToken = "0";
-  formData.type = "lc";
+  formData.type = "landing";
 
   const result = (await apiServices({
     method: "POST",
@@ -43,6 +44,9 @@ const onSubmit = handleSubmit(async (values) => {
   })) as responseApi;
 
   if (result.status && result.code === 100) {
+    const data = result.data;
+    setLoginUser(data);
+    router.push(localePath({ path: "/dashboard" }));
   } else {
     toast.add({
       severity: "error",

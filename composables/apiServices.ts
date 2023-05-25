@@ -152,3 +152,11 @@ export const generateAccessToken = async () => {
 
   return accessToken;
 };
+
+export const setLoginUser = (data: any) => {
+  const authToken = useCookie<string>("authToken");
+  const userData = useCookie<object>("userData");
+
+  userData.value = data.user;
+  authToken.value = data.authToken;
+};
