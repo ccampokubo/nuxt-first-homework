@@ -5,6 +5,8 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
+import { responseApi } from "~/composables/apiServices";
+const toast = useToast();
 
 const { handleSubmit, errors, resetForm } = useForm({
   validationSchema: yup.object({
@@ -19,10 +21,27 @@ const { handleSubmit, errors, resetForm } = useForm({
 const { value: email } = useField("email");
 
 // methods
-const onSubmit = handleSubmit((values) => {
+const onSubmit = handleSubmit(async (values) => {
   console.log(values);
 
-  emit("change", { data: values, change: "validateCode" });
+  const result = await apiServices({
+    method: "POST",
+    url: "onboarding/password-recovery",
+    data: {
+      user: values.email,
+    },
+  });
+
+  if (result.status && result.code === 100) {
+    emit("change", { data: values, change: "validateCode" });
+  } else {
+    toast.add({
+      severity: "error",
+      summary: "Error",
+      detail: result.message,
+      life: 3000,
+    });
+  }
 });
 </script>
 <template>

@@ -5,6 +5,7 @@ const localePath = useLocalePath();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { useToast } from "primevue/usetoast";
+import { responseApi } from "~/composables/apiServices";
 const toast = useToast();
 
 definePageMeta({ layout: "login" });
@@ -35,13 +36,21 @@ const onSubmit = handleSubmit(async (values) => {
   formData.pushToken = "0";
   formData.type = "lc";
 
-  const result = await apiServices({
+  const result = (await apiServices({
     method: "POST",
-    url: "onboarding/login",
+    url: "onboarding/logins",
     data: formData,
-  });
+  })) as responseApi;
 
-  console.log(result);
+  if (result.status && result.code === 100) {
+  } else {
+    toast.add({
+      severity: "error",
+      summary: "Error",
+      detail: result.message,
+      life: 3000,
+    });
+  }
 });
 
 const show = () => {

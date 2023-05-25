@@ -1,5 +1,5 @@
 <script setup lang="ts">
-getAccessToken();
+generateAccessToken();
 </script>
 <template>
   <div class="login-page">

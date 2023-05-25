@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+
   imports: {
     dirs: [
       // Scan top-level modules
@@ -50,7 +51,7 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    transpile: ["primevue"],
+    transpile: ["primevue", "@nuxtjs/i18n"],
   },
 
   setup(build: any) {

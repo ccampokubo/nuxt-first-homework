@@ -9,7 +9,7 @@ interface setting {
   contentType?: number;
 }
 
-interface responseApi {
+export interface responseApi {
   code: number;
   message: string;
   data?: object;
@@ -17,8 +17,11 @@ interface responseApi {
 }
 
 export const apiServices = (setting: setting) => {
+  const nuxtApp = useNuxtApp();
+
   try {
     const config = useRuntimeConfig();
+    // const toast = useToast();
 
     const options: UseFetchOptions<unknown> = {
       baseURL: config.public.API_BASE_URL,
@@ -49,8 +52,60 @@ export const apiServices = (setting: setting) => {
       }
     }
 
-    return useFetch(setting.url, options);
-  } catch (error) {}
+    const { data, error } = useFetch(setting.url, options);
+    if (error.value) {
+      const errorData = error.value;
+
+      if (errorData.statusCode === 404) {
+        if (errorData.data.message) {
+          return {
+            success: false,
+            status: false,
+            code: 102,
+            message: errorData.data.message,
+            error: errorData,
+          };
+        } else {
+          // ? No encontró el servicio
+          return {
+            success: false,
+            status: false,
+            code: 101,
+            message: nuxtApp.$i18n.t("store.apiServices.notFound"),
+            error: errorData,
+          };
+        }
+      } else if (errorData.data.code === 120) {
+        return {
+          success: false,
+          status: false,
+          code: 120,
+          message: errorData.data.message,
+          error: errorData,
+        };
+      } else if (errorData.data.message) {
+        return {
+          success: false,
+          status: false,
+          code: 102,
+          message: errorData.data.message,
+          error: errorData,
+        };
+      } else {
+        return {
+          success: false,
+          status: false,
+          code: 101,
+          message: nuxtApp.$i18n.t("store.apiServices.generalError"),
+          error: errorData,
+        };
+      }
+    }
+
+    return data.value;
+  } catch (erdataror) {
+    console.log(erdataror);
+  }
 };
 
 export const getHeaders = (type: any) => {
@@ -74,7 +129,7 @@ export const getHeaders = (type: any) => {
   return headers;
 };
 
-export const getAccessToken = () => {
+export const generateAccessToken = () => {
   const config = useRuntimeConfig();
   let accessToken = useCookie<string>("accessToken");
 
@@ -87,12 +142,8 @@ export const getAccessToken = () => {
         url: `${shortName}/generate-access-token`,
       }) as any;
 
-      const { data } = result;
-
-      console.log(data._value);
-
-      if (data._value.code === 100) {
-        accessToken.value = data._value.data.accessToken;
+      if (result.code === 100) {
+        accessToken.value = result.data.accessToken;
       }
     }
   } catch (error) {
