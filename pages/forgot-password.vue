@@ -6,7 +6,6 @@ const step = ref("email");
 const data = ref({});
 
 const change = (event: any) => {
-  console.log(event);
   data.value = { ...event.data, ...data.value };
   step.value = event.change;
 };
@@ -15,6 +14,12 @@ const change = (event: any) => {
   <div class="card-login h-auto">
     <div class="card h-auto">
       <FormEmail v-if="step === 'email'" @change="change" />
+      <ValidateCode
+        v-if="step === 'validateCode'"
+        :user="data"
+        @change="change"
+      />
+      <Password v-if="step === 'changePassword'" />
     </div>
   </div>
 </template>

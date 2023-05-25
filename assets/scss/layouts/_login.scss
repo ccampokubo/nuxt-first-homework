@@ -7,10 +7,10 @@
   justify-content: flex-end;
   background-image: url("/img/backhroud_login.png");
   background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: left bottom;
+  background-size: contain;
+  background-position: center left;
   .card-login {
-    height: 100vh;
+    height: auto;
     padding: 2rem;
     .card {
       background: #fefefe 0% 0% no-repeat padding-box;

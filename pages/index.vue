@@ -38,7 +38,7 @@ const onSubmit = handleSubmit(async (values) => {
 
   const result = (await apiServices({
     method: "POST",
-    url: "onboarding/logins",
+    url: "onboarding/login",
     data: formData,
   })) as responseApi;
 

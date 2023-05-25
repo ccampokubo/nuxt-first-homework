@@ -5,12 +5,12 @@ const { t } = useI18n();
 const localePath = useLocalePath();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
-import { responseApi } from "~/composables/apiServices";
+import { useToast } from "primevue/usetoast";
 const toast = useToast();
 
 const { handleSubmit, errors, resetForm } = useForm({
   validationSchema: yup.object({
-    email: yup
+    user: yup
       .string()
       .required(`${t("rule.validation.require")}`)
       .email(`${t("rule.validation.email")}`),
@@ -18,22 +18,23 @@ const { handleSubmit, errors, resetForm } = useForm({
 });
 
 // define variable
-const { value: email } = useField("email");
+const { value: user } = useField("user");
 
 // methods
 const onSubmit = handleSubmit(async (values) => {
-  console.log(values);
-
   const result = await apiServices({
     method: "POST",
     url: "onboarding/password-recovery",
-    data: {
-      user: values.email,
-    },
+    data: values,
   });
 
   if (result.status && result.code === 100) {
     emit("change", { data: values, change: "validateCode" });
+    toast.add({
+      severity: "success",
+      detail: result.message,
+      life: 3000,
+    });
   } else {
     toast.add({
       severity: "error",
@@ -60,22 +61,22 @@ const onSubmit = handleSubmit(async (values) => {
         </div>
       </label>
       <InputText
-        v-model="email"
+        v-model="user"
         :placeholder="$t('form.email.placeholder')"
         type="email"
-        :class="{ 'p-invalid': errors['email'] }"
+        :class="{ 'p-invalid': errors['user'] }"
         aria-describedby="text-error"
       />
       <small class="p-error" id="text-error">{{
-        errors["email"] || "&nbsp;"
+        errors["user"] || "&nbsp;"
       }}</small>
     </span>
 
     <Button
-      :type="email ? 'submit' : 'button'"
-      :disabled="!email"
+      :type="user ? 'submit' : 'button'"
+      :disabled="!user"
       class="mt-4 btn"
-      :class="{ active: email }"
+      :class="{ active: user }"
       :label="$t('button.sendCode')"
     />
   </form>

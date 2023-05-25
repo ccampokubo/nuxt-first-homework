@@ -1,5 +1,9 @@
 <script setup lang="ts">
-generateAccessToken();
+import { onMounted } from "vue";
+
+onMounted(async () => {
+  await generateAccessToken();
+});
 </script>
 <template>
   <div class="login-page">

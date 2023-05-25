@@ -9,7 +9,7 @@ export default {
     welcome: "¡Bienvenido!",
     login: "Iniciar sesión",
     forgotPassword: "Recuperar contraseña",
-    validateCode: "Verificar código",
+    validateCode: "CÓDIGO DE VERIFICACIÓN",
     changePassword: "Restablecer contraseña",
     logout: "Cerrar sesión",
   },
@@ -33,7 +33,7 @@ export default {
     login: "Iniciar sesión",
     forgotPassword: "¿Olvidaste tu contraseña?",
     sendCode: "Enviar",
-    resendCode: "Volver a enviar código",
+    resendCode: "Reenviar código",
     validate: "Verificar",
     reset: "Restablecer",
     update: "Actualizar",
@@ -41,6 +41,7 @@ export default {
     create: "Crear",
     no: "No",
     logout: "Sí, salir",
+    confirm: "Confirmar",
   },
   rule: {
     form: "Por favor revisa la información",
@@ -57,7 +58,9 @@ export default {
       },
       email: "Debe ser una dirección de correo válida",
       password: {
-        valid: "La contraseña debe ser válida",
+        min: "La contraseña debe tener al menos 8 caracteres",
+        valid:
+          "La contraseña debe contener al menos una mayúscula, una minúscula y un número",
         confirm: "Las contraseñas deben coincidir",
       },
       number: "El dato es solo numérico",
@@ -80,11 +83,11 @@ export default {
     login: "Por favor digita tu correo electrónico",
     forgotPassword:
       "Por favor ingresa tu correo, enviaremos un código para que puedas restablecer tu contraseña.",
-    validateCode:
-      "Hemos enviado un código de verificación a tu correo, por favor escribe a continuación",
+    validateCode: "Por favor ingresa el código que enviamos a: ",
     changePassword:
-      "Por favor escribe tu nueva contraseña, recuerda que debe tener al menos una minúscula, una mayúscula y un número",
+      "La contraseña debe contener 8 caracteres alfanuméricos, una mayúscula y una minúscula.",
     logout: "¿Seguro que desea cerrar sesión?",
+    code: "Puedes solicitar otro código en {data} segundos.",
   },
   table: {
     empty: {

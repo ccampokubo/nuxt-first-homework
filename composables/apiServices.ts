@@ -16,7 +16,7 @@ export interface responseApi {
   status: boolean;
 }
 
-export const apiServices = (setting: setting) => {
+export const apiServices = async (setting: setting) => {
   const nuxtApp = useNuxtApp();
 
   try {
@@ -52,7 +52,7 @@ export const apiServices = (setting: setting) => {
       }
     }
 
-    const { data, error } = useFetch(setting.url, options);
+    const { data, error } = await useFetch(setting.url, options);
     if (error.value) {
       const errorData = error.value;
 
@@ -129,7 +129,7 @@ export const getHeaders = (type: any) => {
   return headers;
 };
 
-export const generateAccessToken = () => {
+export const generateAccessToken = async () => {
   const config = useRuntimeConfig();
   let accessToken = useCookie<string>("accessToken");
 
@@ -137,10 +137,10 @@ export const generateAccessToken = () => {
     if (!accessToken.value) {
       const shortName = config.public.SHORT_NAME;
 
-      const result = apiServices({
+      const result = (await apiServices({
         method: "GET",
         url: `${shortName}/generate-access-token`,
-      }) as any;
+      })) as any;
 
       if (result.code === 100) {
         accessToken.value = result.data.accessToken;
