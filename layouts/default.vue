@@ -37,6 +37,7 @@ onMounted(() => {
   if (userData.value) {
     actualPage.value = route.path;
   } else {
+    userData.value = "";
     router.push(localePath({ path: "/" }));
   }
 });
