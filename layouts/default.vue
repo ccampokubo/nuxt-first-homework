@@ -66,7 +66,7 @@ watchEffect(() => {
       </div>
     </aside>
     <main class="main-application">
-      <nav>
+      <nav class="nav-application">
         <DefaultBreadcrumb />
         <div class="flex gap-2"></div>
       </nav>

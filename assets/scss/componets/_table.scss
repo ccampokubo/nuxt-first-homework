@@ -1,0 +1,91 @@
+.app-container-table {
+  .table-project {
+    border-radius: 5px;
+    background-color: white;
+    cursor: default;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    thead {
+      font-size: 1em;
+      font-weight: 600;
+      color: #fafafa;
+      border: 1px solid #d6dde6;
+      tr th span {
+        color: #05206d;
+      }
+      tr {
+        th:first-child {
+          padding-left: 40px;
+        }
+        th:last-child {
+          padding-right: 40px;
+        }
+      }
+    }
+    tbody {
+      padding: 10px !important;
+      a,
+      p,
+      span {
+        font-size: 0.9em;
+        color: #000000;
+      }
+      tr td {
+        border-bottom: 1px solid #70707029 !important;
+      }
+      tr:last-child td {
+        border-bottom: none !important;
+      }
+      tr:hover {
+        background-color: #f7f7f7 !important;
+      }
+      tr {
+        td:first-child {
+          padding-left: 40px;
+        }
+        td:last-child {
+          padding-right: 40px;
+        }
+      }
+    }
+    .rectangular-img {
+      max-width: 140px;
+      max-height: 68px;
+      border-radius: 5px;
+    }
+    .principal-title {
+      font-weight: 600;
+      color: #05206d;
+    }
+    .text-truncated {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #loading-text {
+      text-align: center;
+    }
+    .p-component-overlay {
+      background-color: rgba(162, 162, 162, 0.5);
+      i {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .p-paginator {
+    background-color: transparent;
+    justify-content: flex-end;
+    .p-paginator-element {
+      background-color: white;
+      color: #000000;
+      font-weight: 500;
+    }
+    .p-highlight {
+      background: #ebebeb !important;
+      background-color: #ebebeb !important;
+      color: #000000 !important;
+    }
+  }
+}

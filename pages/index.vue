@@ -8,6 +8,7 @@ import * as yup from "yup";
 import { useToast } from "primevue/usetoast";
 import { responseApi } from "~/composables/apiServices";
 const toast = useToast();
+const loading = useLoading(ref(false));
 
 definePageMeta({ layout: "login" });
 
@@ -28,6 +29,7 @@ const iconPassword = ref(false);
 
 // methods
 const onSubmit = handleSubmit(async (values) => {
+  loading.value = true;
   const formData = { ...values };
   formData.password = enc(formData.password);
   formData.iv = formData.password.iv;
@@ -55,6 +57,8 @@ const onSubmit = handleSubmit(async (values) => {
       life: 3000,
     });
   }
+
+  loading.value = false;
 });
 
 const show = () => {

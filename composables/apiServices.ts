@@ -23,8 +23,14 @@ export const apiServices = async (setting: setting) => {
     const config = useRuntimeConfig();
     // const toast = useToast();
 
+    const userData = useCookie("userData").value;
+
+    if (userData) {
+      setting.typeHeader = "auth";
+    }
+
     const options: UseFetchOptions<unknown> = {
-      baseURL: config.public.API_BASE_URL,
+      baseURL: setting.api ? setting.api : config.public.API_BASE_URL,
       headers: getHeaders(setting.typeHeader),
       method: setting.method,
     } as any;

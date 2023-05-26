@@ -100,6 +100,12 @@ export default {
       active: "Activo",
       inactive: "Inactivo",
     },
+    admin: {
+      name: "Nombre y Apellido",
+      email: "Correo electrónico",
+      role: "Rol",
+      cellphone: "Teléfono",
+    },
   },
   menu: {
     notification: "Notificaciones",
