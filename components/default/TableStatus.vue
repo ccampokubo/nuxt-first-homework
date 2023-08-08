@@ -2,14 +2,12 @@
 import { ref, toRef } from "vue";
 const emit = defineEmits(["reload"]);
 const { t } = useI18n();
-const nuxtApp = useNuxtApp();
 const props = defineProps({
   id: String | Number,
   status: String,
   service: String,
 });
 const loading = useLoading(ref(false));
-const toast = nuxtApp.$toast;
 const idRef = toRef(props, "id");
 const menu = ref();
 
@@ -41,17 +39,14 @@ const save = async (state) => {
   });
 
   if (result.status && result.code === 100) {
-    toast.add({
-      severity: "success",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      type: "success",
+      message: result.message,
     });
   } else {
-    toast.add({
-      severity: "error",
-      summary: "¡Uppss!",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      type: "error",
+      message: result.message,
     });
   }
 

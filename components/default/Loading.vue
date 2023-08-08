@@ -1,5 +1,6 @@
-<script setup>
-const loading = useLoading(false);
+<script setup lang="ts">
+import { ref } from "vue";
+const loading = useLoading(ref(false));
 </script>
 
 <template>

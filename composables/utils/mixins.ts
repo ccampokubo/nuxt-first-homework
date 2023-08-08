@@ -1,5 +1,13 @@
 import { Ref } from "vue";
 
+// interfaces
+interface showAlertI {
+  title?: string;
+  message: string;
+  type?: string; // success, info, warn, error
+  duration?: number; // Delay in milliseconds to close the message automatically
+}
+
 export const useLoading = (value: Ref<boolean>) =>
   useState<boolean>("loading", () => {
     return value;
@@ -34,4 +42,18 @@ export const searchItemJson = (path: string, obj: any) => {
   }
 
   return result;
+};
+
+export const showAlert = (config: showAlertI) => {
+  const nuxtApp = useNuxtApp();
+  const toast = nuxtApp.$toast;
+  config.type = "error";
+  config.duration = 3500;
+
+  toast.add({
+    severity: config.type,
+    summary: config.title,
+    detail: config.message,
+    life: config.duration,
+  });
 };

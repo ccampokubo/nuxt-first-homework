@@ -2,12 +2,10 @@
 import { ref } from "vue";
 const { t } = useI18n();
 const localePath = useLocalePath();
-const nuxtApp = useNuxtApp();
 const router = useRouter();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
 import { responseApi } from "~/composables/apiServices";
-const toast = nuxtApp.$toast;
 const loading = useLoading(ref(false));
 
 definePageMeta({ layout: "login" });
@@ -50,25 +48,13 @@ const onSubmit = handleSubmit(async (values) => {
     setLoginUser(data);
     router.push(localePath({ path: "/dashboard" }));
   } else {
-    toast.add({
-      severity: "error",
-      summary: "Error",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      message: result.message,
     });
   }
 
   loading.value = false;
 });
-
-const show = () => {
-  toast.add({
-    severity: "info",
-    summary: "Info",
-    detail: "Message Content",
-    life: 3000,
-  });
-};
 </script>
 <template>
   <div class="card-login">

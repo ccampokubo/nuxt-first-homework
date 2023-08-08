@@ -2,11 +2,9 @@
 const emit = defineEmits(["change"]);
 
 const { t } = useI18n();
-const nuxtApp = useNuxtApp();
 const localePath = useLocalePath();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
-const toast = nuxtApp.$toast;
 
 const { handleSubmit, errors, resetForm } = useForm({
   validationSchema: yup.object({
@@ -30,17 +28,14 @@ const onSubmit = handleSubmit(async (values) => {
 
   if (result.status && result.code === 100) {
     emit("change", { data: values, change: "validateCode" });
-    toast.add({
-      severity: "success",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      type: "success",
+      message: result.message,
     });
   } else {
-    toast.add({
-      severity: "error",
-      summary: "Error",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      type: "error",
+      message: result.message,
     });
   }
 });

@@ -2,9 +2,7 @@
 const props = defineProps(["user"]);
 const emit = defineEmits(["change"]);
 import { ref, onMounted } from "vue";
-const nuxtApp = useNuxtApp();
 import VOtpInput from "vue3-otp-input";
-const toast = nuxtApp.$toast;
 
 const otpInput = ref<InstanceType<typeof VOtpInput> | null>(null);
 const bindModal = ref("");
@@ -23,17 +21,14 @@ const handleOnComplete = async (value: string) => {
 
   if (result.status && result.code === 100) {
     emit("change", { data: props.user, change: "changePassword" });
-    toast.add({
-      severity: "success",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      type: "success",
+      message: result.message,
     });
   } else {
-    toast.add({
-      severity: "error",
-      summary: "¡Uppss!",
-      detail: result.message,
-      life: 3000,
+    showAlert({
+      type: "error",
+      message: result.message,
     });
   }
 };
