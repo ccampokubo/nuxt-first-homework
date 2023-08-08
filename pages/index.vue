@@ -2,12 +2,12 @@
 import { ref } from "vue";
 const { t } = useI18n();
 const localePath = useLocalePath();
+const nuxtApp = useNuxtApp();
 const router = useRouter();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
-import { useToast } from "primevue/usetoast";
 import { responseApi } from "~/composables/apiServices";
-const toast = useToast();
+const toast = nuxtApp.$toast;
 const loading = useLoading(ref(false));
 
 definePageMeta({ layout: "login" });

@@ -1,3 +1,6 @@
+<script setup lang="ts">
+await generateAccessToken();
+</script>
 <template>
   <Loading />
   <NuxtLayout>

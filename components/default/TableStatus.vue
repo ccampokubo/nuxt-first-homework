@@ -2,14 +2,14 @@
 import { ref, toRef } from "vue";
 const emit = defineEmits(["reload"]);
 const { t } = useI18n();
+const nuxtApp = useNuxtApp();
 const props = defineProps({
   id: String | Number,
   status: String,
   service: String,
 });
 const loading = useLoading(ref(false));
-import { useToast } from "primevue/usetoast";
-const toast = useToast();
+const toast = nuxtApp.$toast;
 const idRef = toRef(props, "id");
 const menu = ref();
 

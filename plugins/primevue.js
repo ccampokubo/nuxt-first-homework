@@ -19,4 +19,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Column", Column);
   nuxtApp.vueApp.component("Paginator", Paginator);
   nuxtApp.vueApp.component("Menu", Menu);
+
+  return {
+    provide: {
+      toast: nuxtApp.vueApp.config.globalProperties.$toast,
+    },
+  };
 });

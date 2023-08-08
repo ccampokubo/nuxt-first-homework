@@ -2,9 +2,9 @@
 const props = defineProps(["user"]);
 const emit = defineEmits(["change"]);
 import { ref, onMounted } from "vue";
+const nuxtApp = useNuxtApp();
 import VOtpInput from "vue3-otp-input";
-import { useToast } from "primevue/usetoast";
-const toast = useToast();
+const toast = nuxtApp.$toast;
 
 const otpInput = ref<InstanceType<typeof VOtpInput> | null>(null);
 const bindModal = ref("");

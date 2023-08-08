@@ -2,11 +2,11 @@
 const emit = defineEmits(["change"]);
 
 const { t } = useI18n();
+const nuxtApp = useNuxtApp();
 const localePath = useLocalePath();
 import { useField, useForm } from "vee-validate";
 import * as yup from "yup";
-import { useToast } from "primevue/usetoast";
-const toast = useToast();
+const toast = nuxtApp.$toast;
 
 const { handleSubmit, errors, resetForm } = useForm({
   validationSchema: yup.object({

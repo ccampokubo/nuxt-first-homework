@@ -21,11 +21,10 @@ export const apiServices = async (setting: setting) => {
 
   try {
     const config = useRuntimeConfig();
-    // const toast = useToast();
 
     const userData = useCookie("userData").value;
 
-    if (userData) {
+    if (userData && setting.typeHeader === "") {
       setting.typeHeader = "auth";
     }
 
@@ -40,15 +39,13 @@ export const apiServices = async (setting: setting) => {
         const formData = new FormData();
 
         Object.entries(setting.data || {}).forEach((key) => {
-          formData.append(key[0], key[1]);
+          formData.append(`${key[0]}`, key[1]);
         });
 
-        setting.data = formData;
         options.headers = {
           ...options.headers,
-          "Content-Type": "multipart/form-data",
         };
-        options.body = setting.data;
+        options.body = formData;
       } else {
         options.headers = {
           ...options.headers,
@@ -82,6 +79,9 @@ export const apiServices = async (setting: setting) => {
           };
         }
       } else if (errorData.data.code === 120) {
+        if (errorData.data.message.includes("token")) {
+          logout();
+        }
         return {
           success: false,
           status: false,
@@ -165,4 +165,8 @@ export const setLoginUser = (data: any) => {
 
   userData.value = data.user;
   authToken.value = data.authToken;
+};
+
+export const logout = () => {
+  setLoginUser({ user: null, authToken: null });
 };
