@@ -1,4 +1,5 @@
 import { Ref } from "vue";
+import moment from "moment";
 
 // interfaces
 interface showAlertI {
@@ -56,4 +57,18 @@ export const showAlert = (config: showAlertI) => {
     detail: config.message,
     life: config.duration,
   });
+};
+
+export const formatDate = (date: string, type: string) => {
+  let dateFormat = "-";
+
+  if (type === "date-send") {
+    dateFormat = moment(date).format("YYYY[-]MM[-]DD");
+  }
+
+  if (type === "date-table") {
+    dateFormat = moment(date).format("DD[/]MM[/]YYYY");
+  }
+
+  return dateFormat;
 };

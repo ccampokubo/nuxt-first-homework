@@ -44,6 +44,9 @@ export default defineNuxtConfig({
   // modules
   modules: ["@nuxtjs/i18n"],
 
+  // buildModules
+  buildModules: ["@nuxtjs/moment"],
+
   // translator
   i18n: {
     locales: [
@@ -78,7 +81,7 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    transpile: ["primevue", "@nuxtjs/i18n", "@nuxtjs/moment"],
+    transpile: ["primevue", "@nuxtjs/i18n"],
   },
 
   setup(build: any) {
