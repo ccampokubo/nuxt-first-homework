@@ -1,9 +1,9 @@
-import es from "./es";
+import es from './es'
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "es",
+  locale: 'es',
   messages: {
     es: es,
   },
-}));
+}))

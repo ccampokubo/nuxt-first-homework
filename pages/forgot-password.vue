@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
-definePageMeta({ layout: "login" });
+import { ref } from 'vue'
+definePageMeta({ layout: 'login' })
 
-const step = ref("email");
-const data = ref({});
+const step = ref('email')
+const data = ref({})
 
 const change = (event: any) => {
-  data.value = { ...event.data, ...data.value };
-  step.value = event.change;
-};
+  data.value = { ...event.data, ...data.value }
+  step.value = event.change
+}
 </script>
 <template>
   <div class="card-login h-auto">

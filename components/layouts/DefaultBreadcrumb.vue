@@ -1,56 +1,54 @@
 <script setup>
-import { ref, onMounted, watchEffect, computed } from "vue";
-const route = useRoute();
-const router = useRouter();
+import { ref, onMounted, watchEffect, computed } from 'vue'
+const route = useRoute()
+const router = useRouter()
 // variables
-const title = ref("");
-const actualPage = ref("");
+const title = ref('')
+const actualPage = ref('')
 const routePath = computed({
   get() {
-    return validatePage(actualPage.value);
+    return validatePage(actualPage.value)
   },
-});
+})
 
 onMounted(() => {
-  actualPage.value = route.path;
-});
+  actualPage.value = route.path
+})
 
 watchEffect(() => {
-  actualPage.value = router.currentRoute.value.path;
-});
+  actualPage.value = router.currentRoute.value.path
+})
 
 const validatePage = (_page) => {
-  let route = [];
+  let route = []
 
   // ? Sección para Reportes
-  if (_page.includes("dashboard")) {
-    route = [
-      { text: "Reportes", class: "principal-title", goTo: "/dashboard" },
-    ];
-    title.value = "Reportes";
+  if (_page.includes('dashboard')) {
+    route = [{ text: 'Reportes', class: 'principal-title', goTo: '/dashboard' }]
+    title.value = 'Reportes'
   }
   // ? Sección para administradores
-  else if (_page.includes("administrators")) {
+  else if (_page.includes('administrators')) {
     route = [
-      { text: "Admin", class: "principal-title", goTo: "/administrators" },
-    ];
-    title.value = "Admin";
+      { text: 'Admin', class: 'principal-title', goTo: '/administrators' },
+    ]
+    title.value = 'Admin'
   }
 
   // ? Sección por defecto
   else {
     route = [
       {
-        text: "404 - Página no encontrada",
-        class: "principal-title",
-        goTo: "",
+        text: '404 - Página no encontrada',
+        class: 'principal-title',
+        goTo: '',
       },
-    ];
-    title.value = "Página no encontrada";
+    ]
+    title.value = 'Página no encontrada'
   }
 
-  return route;
-};
+  return route
+}
 </script>
 
 <template>

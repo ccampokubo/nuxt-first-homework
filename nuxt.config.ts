@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import sass from "sass";
+import sass from 'sass'
 export default defineNuxtConfig({
   cache: {
     components: true,
@@ -15,54 +15,54 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: "%s - Stack Front",
-      title: "Stack Front para los BO",
+      titleTemplate: '%s - Stack Front',
+      title: 'Stack Front para los BO',
       meta: [
-        { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
-          hid: "description",
-          name: "description",
-          content: "Stack Front para los Backoffice",
+          hid: 'description',
+          name: 'description',
+          content: 'Stack Front para los Backoffice',
         },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
 
   imports: {
     dirs: [
       // Scan top-level modules
-      "composables",
+      'composables',
       // ... or scan modules nested one level deep with a specific name and file extension
-      "composables/*/index.{ts,js,mjs,mts}",
+      'composables/*/index.{ts,js,mjs,mts}',
       // ... or scan all modules within given directory
-      "composables/**",
+      'composables/**',
     ],
   },
 
   // modules
-  modules: ["@nuxtjs/i18n"],
+  modules: ['@nuxtjs/i18n'],
 
   // buildModules
-  buildModules: ["@nuxtjs/moment"],
+  buildModules: ['@nuxtjs/moment'],
 
   // translator
   i18n: {
     locales: [
       {
-        code: "es",
-        file: "es.ts",
-        name: "Español",
+        code: 'es',
+        file: 'es.ts',
+        name: 'Español',
       },
     ],
     lazy: true,
-    langDir: "lang/",
-    defaultLocale: "es",
+    langDir: 'lang/',
+    defaultLocale: 'es',
   },
 
   // css
-  css: ["~/assets/scss/main.scss"],
+  css: ['~/assets/scss/main.scss'],
 
   // config envs
   runtimeConfig: {
@@ -75,13 +75,13 @@ export default defineNuxtConfig({
 
   components: [
     {
-      path: "~/components",
+      path: '~/components',
       pathPrefix: false,
     },
   ],
 
   build: {
-    transpile: ["primevue", "@nuxtjs/i18n"],
+    transpile: ['primevue', '@nuxtjs/i18n'],
   },
 
   setup(build: any) {
@@ -89,6 +89,6 @@ export default defineNuxtConfig({
       sass: {
         implementation: sass,
       },
-    };
+    }
   },
-});
+})

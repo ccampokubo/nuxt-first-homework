@@ -1,76 +1,76 @@
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
-const { t } = useI18n();
+import { ref, onMounted, nextTick } from 'vue'
+const { t } = useI18n()
 
 // variables
 const table = ref({
   headers: [
     {
-      field: "fullname",
-      header: t("table.admin.name"),
+      field: 'fullname',
+      header: t('table.admin.name'),
     },
     {
-      field: "email",
-      header: t("table.admin.email"),
+      field: 'email',
+      header: t('table.admin.email'),
     },
     {
-      type: "state",
-      service: "admin/update/",
-      field: "options.status",
-      header: t("table.state.title"),
+      type: 'state',
+      service: 'admin/update/',
+      field: 'options.status',
+      header: t('table.state.title'),
     },
   ],
   fields: [],
-  empty: "",
+  empty: '',
   loading: false,
   limit: 0,
   pages: 0,
-});
+})
 
 const form = ref({
   limit: 5,
   offset: 0,
-  filter: "",
-});
+  filter: '',
+})
 
 onMounted(() => {
   nextTick(async () => {
-    await init();
-  });
-});
+    await init()
+  })
+})
 
 // methods
 const init = async () => {
-  await getList();
-};
+  await getList()
+}
 
 const changePage = async (page) => {
-  form.value.offset = page;
-  await getList();
-};
+  form.value.offset = page
+  await getList()
+}
 
 const getList = async () => {
-  table.value.loading = true;
-  table.value.fields = [];
-  table.value.pages = 0;
-  table.value.limit = form.value.limit;
+  table.value.loading = true
+  table.value.fields = []
+  table.value.pages = 0
+  table.value.limit = form.value.limit
 
   const result = await apiServices({
-    method: "POST",
-    url: "admin/list",
-    api: "http://lazyapibo.inkubo.co/v1/",
+    method: 'POST',
+    url: 'admin/list',
+    api: 'http://lazyapibo.inkubo.co/v1/',
     data: form.value,
-  });
+  })
 
   if (result.status && result.code === 100) {
-    table.value.fields = result.data.admin;
-    table.value.pages = result.data.totalPages;
+    table.value.fields = result.data.admin
+    table.value.pages = result.data.totalPages
   } else {
-    table.value.empty = result.message;
+    table.value.empty = result.message
   }
 
-  table.value.loading = false;
-};
+  table.value.loading = false
+}
 </script>
 <template>
   <section class="content-page">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-await generateAccessToken();
+await generateAccessToken()
 </script>
 <template>
   <Loading />

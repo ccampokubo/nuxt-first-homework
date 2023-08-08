@@ -1,42 +1,24 @@
-# Nuxt 3 Minimal Starter
+# stack-front-v3
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+## Build Setup
 
 ```bash
-# yarn
-yarn install
+# install dependencies
+$ npm install
 
-# npm
-npm install
+# serve with hot reload at localhost:3000
+$ npm run dev:development
+$ npm run dev:staging
+$ npm run dev:production
 
-# pnpm
-pnpm install
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate:development
+$ npm run generate:staging
+$ npm run generate:production
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxt.com/docs/getting-started/deployment).

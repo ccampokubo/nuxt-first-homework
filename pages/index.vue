@@ -1,60 +1,60 @@
 <script setup lang="ts">
-import { ref } from "vue";
-const { t } = useI18n();
-const localePath = useLocalePath();
-const router = useRouter();
-import { useField, useForm } from "vee-validate";
-import * as yup from "yup";
-import { responseApi } from "~/composables/apiServices";
-const loading = useLoading(ref(false));
+import { ref } from 'vue'
+const { t } = useI18n()
+const localePath = useLocalePath()
+const router = useRouter()
+import { useField, useForm } from 'vee-validate'
+import * as yup from 'yup'
+import { responseApi } from '~/composables/apiServices'
+const loading = useLoading(ref(false))
 
-definePageMeta({ layout: "login" });
+definePageMeta({ layout: 'login' })
 
 const { handleSubmit, errors, resetForm } = useForm({
   validationSchema: yup.object({
     email: yup
       .string()
-      .required(`${t("rule.validation.require")}`)
-      .email(`${t("rule.validation.email")}`),
-    password: yup.string().required(`${t("rule.validation.require")}`),
+      .required(`${t('rule.validation.require')}`)
+      .email(`${t('rule.validation.email')}`),
+    password: yup.string().required(`${t('rule.validation.require')}`),
   }),
-});
+})
 
 // define variable
-const { value: email } = useField("email");
-const { value: password } = useField("password");
-const iconPassword = ref(false);
+const { value: email } = useField('email')
+const { value: password } = useField('password')
+const iconPassword = ref(false)
 
 // methods
 const onSubmit = handleSubmit(async (values) => {
-  loading.value = true;
-  const formData = { ...values };
-  formData.password = enc(formData.password);
-  formData.iv = formData.password.iv;
-  formData.password = formData.password.password;
-  formData.platform = "backoffice";
-  formData.version = "1.0.0";
-  formData.pushToken = "0";
-  formData.type = "landing";
+  loading.value = true
+  const formData = { ...values }
+  formData.password = enc(formData.password)
+  formData.iv = formData.password.iv
+  formData.password = formData.password.password
+  formData.platform = 'backoffice'
+  formData.version = '1.0.0'
+  formData.pushToken = '0'
+  formData.type = 'landing'
 
   const result = (await apiServices({
-    method: "POST",
-    url: "onboarding/login",
+    method: 'POST',
+    url: 'onboarding/login',
     data: formData,
-  })) as responseApi;
+  })) as responseApi
 
   if (result.status && result.code === 100) {
-    const data = result.data;
-    setLoginUser(data);
-    router.push(localePath({ path: "/dashboard" }));
+    const data = result.data
+    setLoginUser(data)
+    router.push(localePath({ path: '/dashboard' }))
   } else {
     showAlert({
       message: result.message,
-    });
+    })
   }
 
-  loading.value = false;
-});
+  loading.value = false
+})
 </script>
 <template>
   <div class="card-login">
@@ -64,14 +64,14 @@ const onSubmit = handleSubmit(async (values) => {
           <img width="35" src="/icons/arrow.svg" alt="volver"
         /></nuxt-link>
         <img width="214" src="/img/logo_login.svg" alt="logo" />
-        <h1 class="bebasneue-bold mb-0">{{ $t("title.welcome") }}</h1>
-        <p class="mt-1 mb-2">{{ $t("text.login") }}</p>
+        <h1 class="bebasneue-bold mb-0">{{ $t('title.welcome') }}</h1>
+        <p class="mt-1 mb-2">{{ $t('text.login') }}</p>
 
         <span class="general-input solo-login">
           <label for="email">
             <div class="flex align-items-center gap-1">
               <img src="/icons/email.svg" alt="email" />
-              {{ $t("form.email.label") }}
+              {{ $t('form.email.label') }}
             </div>
           </label>
           <InputText
@@ -82,14 +82,14 @@ const onSubmit = handleSubmit(async (values) => {
             aria-describedby="text-error"
           />
           <small class="p-error" id="text-error">{{
-            errors["email"] || "&nbsp;"
+            errors['email'] || '&nbsp;'
           }}</small>
         </span>
         <span class="general-input solo-login p-input-icon-right mb-1">
           <label for="password">
             <div class="flex align-items-center gap-1">
               <img src="/icons/pass.svg" alt="password" />
-              {{ $t("form.password.label") }}
+              {{ $t('form.password.label') }}
             </div>
           </label>
           <i class="cursor-pointer" @click="iconPassword = !iconPassword">
@@ -104,14 +104,14 @@ const onSubmit = handleSubmit(async (values) => {
           />
 
           <small class="p-error" id="text-error">{{
-            errors["password"] || "&nbsp;"
+            errors['password'] || '&nbsp;'
           }}</small>
         </span>
 
         <nuxt-link
           class="forgotPassword"
           :to="localePath({ path: 'forgot-password' })"
-          >{{ $t("button.forgotPassword") }}</nuxt-link
+          >{{ $t('button.forgotPassword') }}</nuxt-link
         >
 
         <Button

@@ -1,6 +1,6 @@
 <script setup>
-const route = useRoute();
-const emit = defineEmits(["change-page"]);
+const route = useRoute()
+const emit = defineEmits(['change-page'])
 const props = defineProps({
   headers: Array,
   fields: Array,
@@ -8,31 +8,31 @@ const props = defineProps({
   loading: Boolean,
   limit: Number,
   pages: Number,
-});
+})
 
 // methos
 const searchField = (path, data) => {
-  return searchItemJson(path, data);
-};
+  return searchItemJson(path, data)
+}
 
 const onPage = (event) => {
-  emit("change-page", event.page);
-};
+  emit('change-page', event.page)
+}
 
 const getGoTo = (_prop, _item) => {
-  let url = "";
+  let url = ''
 
   switch (_item.action) {
-    case "detail":
-      url = route.path + "/" + _prop.data.id;
-      break;
+    case 'detail':
+      url = route.path + '/' + _prop.data.id
+      break
 
     default:
-      break;
+      break
   }
 
-  return url;
-};
+  return url
+}
 </script>
 
 <template>

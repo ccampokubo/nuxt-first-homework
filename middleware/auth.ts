@@ -1,13 +1,13 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  const auth = useCookie("userData").value;
-  console.log("middleware");
+  const auth = useCookie('userData').value
+  console.log('middleware')
   if (!auth) {
-    return navigateTo("/");
+    return navigateTo('/')
   }
 
-  if (to.path === "/") {
+  if (to.path === '/') {
     if (auth) {
-      return navigateTo("/dashboard");
+      return navigateTo('/dashboard')
     }
   }
-});
+})

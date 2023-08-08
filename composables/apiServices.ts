@@ -1,63 +1,63 @@
-import type { UseFetchOptions } from "nuxt/app";
+import type { UseFetchOptions } from 'nuxt/app'
 
 interface setting {
-  method?: string;
-  typeHeader?: string;
-  url: string;
-  data?: object;
-  api?: string;
-  contentType?: number;
+  method?: string
+  typeHeader?: string
+  url: string
+  data?: object
+  api?: string
+  contentType?: number
 }
 
 export interface responseApi {
-  code: number;
-  message: string;
-  data?: object;
-  status: boolean;
+  code: number
+  message: string
+  data?: object
+  status: boolean
 }
 
 export const apiServices = async (setting: setting) => {
-  const nuxtApp = useNuxtApp();
+  const nuxtApp = useNuxtApp()
 
   try {
-    const config = useRuntimeConfig();
+    const config = useRuntimeConfig()
 
-    const userData = useCookie("userData").value;
+    const userData = useCookie('userData').value
 
-    if (userData && setting.typeHeader === "") {
-      setting.typeHeader = "auth";
+    if (userData && setting.typeHeader === '') {
+      setting.typeHeader = 'auth'
     }
 
     const options: UseFetchOptions<unknown> = {
       baseURL: setting.api ? setting.api : config.public.API_BASE_URL,
       headers: getHeaders(setting.typeHeader),
       method: setting.method,
-    } as any;
+    } as any
 
-    if (setting.method !== "GET") {
+    if (setting.method !== 'GET') {
       if (setting.contentType === 0) {
-        const formData = new FormData();
+        const formData = new FormData()
 
         Object.entries(setting.data || {}).forEach((key) => {
-          formData.append(`${key[0]}`, key[1]);
-        });
+          formData.append(`${key[0]}`, key[1])
+        })
 
         options.headers = {
           ...options.headers,
-        };
-        options.body = formData;
+        }
+        options.body = formData
       } else {
         options.headers = {
           ...options.headers,
-          "Content-Type": "application/json",
-        };
-        options.body = JSON.stringify(setting.data);
+          'Content-Type': 'application/json',
+        }
+        options.body = JSON.stringify(setting.data)
       }
     }
 
-    const { data, error } = await useFetch(setting.url, options);
+    const { data, error } = await useFetch(setting.url, options)
     if (error.value) {
-      const errorData = error.value;
+      const errorData = error.value
 
       if (errorData.statusCode === 404) {
         if (errorData.data.message) {
@@ -67,20 +67,20 @@ export const apiServices = async (setting: setting) => {
             code: 102,
             message: errorData.data.message,
             error: errorData,
-          };
+          }
         } else {
           // ? No encontró el servicio
           return {
             success: false,
             status: false,
             code: 101,
-            message: nuxtApp.$i18n.t("store.apiServices.notFound"),
+            message: nuxtApp.$i18n.t('store.apiServices.notFound'),
             error: errorData,
-          };
+          }
         }
       } else if (errorData.data.code === 120) {
-        if (errorData.data.message.includes("token")) {
-          logout();
+        if (errorData.data.message.includes('token')) {
+          logout()
         }
         return {
           success: false,
@@ -88,7 +88,7 @@ export const apiServices = async (setting: setting) => {
           code: 120,
           message: errorData.data.message,
           error: errorData,
-        };
+        }
       } else if (errorData.data.message) {
         return {
           success: false,
@@ -96,77 +96,77 @@ export const apiServices = async (setting: setting) => {
           code: 102,
           message: errorData.data.message,
           error: errorData,
-        };
+        }
       } else {
         return {
           success: false,
           status: false,
           code: 101,
-          message: nuxtApp.$i18n.t("store.apiServices.generalError"),
+          message: nuxtApp.$i18n.t('store.apiServices.generalError'),
           error: errorData,
-        };
+        }
       }
     }
 
-    return data.value;
+    return data.value
   } catch (erdataror) {
-    console.log(erdataror);
+    console.log(erdataror)
   }
-};
+}
 
 export const getHeaders = (type: any) => {
-  const config = useRuntimeConfig();
-  const accessToken = useCookie("accessToken").value;
-  const authToken = useCookie("authToken").value;
-  let headers = {};
+  const config = useRuntimeConfig()
+  const accessToken = useCookie('accessToken').value
+  const authToken = useCookie('authToken').value
+  let headers = {}
 
-  if (type === "auth") {
+  if (type === 'auth') {
     headers = {
       [`X-${config.public.SHORT_NAME.toUpperCase()}-Auth-Token`]:
-        authToken || "",
-    };
+        authToken || '',
+    }
   } else {
     headers = {
       [`X-${config.public.SHORT_NAME.toUpperCase()}-Access-Token`]:
-        accessToken || "",
-    };
+        accessToken || '',
+    }
   }
 
-  return headers;
-};
+  return headers
+}
 
 export const generateAccessToken = async () => {
-  const config = useRuntimeConfig();
-  let accessToken = useCookie<string>("accessToken");
+  const config = useRuntimeConfig()
+  let accessToken = useCookie<string>('accessToken')
 
   try {
     if (!accessToken.value) {
-      const shortName = config.public.SHORT_NAME;
+      const shortName = config.public.SHORT_NAME
 
       const result = (await apiServices({
-        method: "GET",
+        method: 'GET',
         url: `${shortName}/generate-access-token`,
-      })) as any;
+      })) as any
 
       if (result.code === 100) {
-        accessToken.value = result.data.accessToken;
+        accessToken.value = result.data.accessToken
       }
     }
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 
-  return accessToken;
-};
+  return accessToken
+}
 
 export const setLoginUser = (data: any) => {
-  const authToken = useCookie<string>("authToken");
-  const userData = useCookie<object>("userData");
+  const authToken = useCookie<string>('authToken')
+  const userData = useCookie<object>('userData')
 
-  userData.value = data.user;
-  authToken.value = data.authToken;
-};
+  userData.value = data.user
+  authToken.value = data.authToken
+}
 
 export const logout = () => {
-  setLoginUser({ user: null, authToken: null });
-};
+  setLoginUser({ user: null, authToken: null })
+}

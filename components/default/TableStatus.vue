@@ -1,58 +1,58 @@
 <script setup>
-import { ref, toRef } from "vue";
-const emit = defineEmits(["reload"]);
-const { t } = useI18n();
+import { ref, toRef } from 'vue'
+const emit = defineEmits(['reload'])
+const { t } = useI18n()
 const props = defineProps({
   id: String | Number,
   status: String,
   service: String,
-});
-const loading = useLoading(ref(false));
-const idRef = toRef(props, "id");
-const menu = ref();
+})
+const loading = useLoading(ref(false))
+const idRef = toRef(props, 'id')
+const menu = ref()
 
 const items = ref([
   {
-    label: t("table.state.active"),
+    label: t('table.state.active'),
     command: () => {
-      save("active");
+      save('active')
     },
   },
   {
-    label: t("table.state.inactive"),
+    label: t('table.state.inactive'),
     command: () => {
-      save("inactive");
+      save('inactive')
     },
   },
-]);
+])
 
 const toggle = (event) => {
-  menu.value.toggle(event);
-};
+  menu.value.toggle(event)
+}
 
 const save = async (state) => {
-  loading.value = true;
+  loading.value = true
 
   const result = await apiServices({
     url: props.service + props.id,
-    method: "PUT",
-  });
+    method: 'PUT',
+  })
 
   if (result.status && result.code === 100) {
     showAlert({
-      type: "success",
+      type: 'success',
       message: result.message,
-    });
+    })
   } else {
     showAlert({
-      type: "error",
+      type: 'error',
       message: result.message,
-    });
+    })
   }
 
-  emit("reload");
-  loading.value = false;
-};
+  emit('reload')
+  loading.value = false
+}
 </script>
 <template>
   <div class="content-state-selector">
@@ -63,9 +63,9 @@ const save = async (state) => {
       @click="toggle"
     >
       <span>{{
-        status === "active"
-          ? $t("table.state.active")
-          : $t("table.state.inactive")
+        status === 'active'
+          ? $t('table.state.active')
+          : $t('table.state.inactive')
       }}</span>
     </div>
     <Menu :id="id" ref="menu" :model="items" :popup="true" append-to="body" />

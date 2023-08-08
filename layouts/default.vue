@@ -1,51 +1,51 @@
 <script setup>
-import { ref, watchEffect, onMounted } from "vue";
-const { t } = useI18n();
-const router = useRouter();
-const route = useRoute();
-const localePath = useLocalePath();
+import { ref, watchEffect, onMounted } from 'vue'
+const { t } = useI18n()
+const router = useRouter()
+const route = useRoute()
+const localePath = useLocalePath()
 
-const userData = useCookie("userData");
+const userData = useCookie('userData')
 
 // variables
 const items = ref([
   {
-    text: t("menu.report"),
-    img: "ic_reports",
-    to: "/dashboard",
+    text: t('menu.report'),
+    img: 'ic_reports',
+    to: '/dashboard',
   },
   {
-    text: t("menu.admin"),
-    img: "ic_admin",
-    to: "/administrators",
+    text: t('menu.admin'),
+    img: 'ic_admin',
+    to: '/administrators',
   },
-]);
-const actualPage = ref("");
+])
+const actualPage = ref('')
 
 const validateRol = (page) => {
-  const item = items.value.filter((item) => page.includes(item.to));
+  const item = items.value.filter((item) => page.includes(item.to))
 
   if (item.length > 0) {
-    return true;
+    return true
   } else {
-    router.push(localePath({ path: items.value[0].to }));
-    return false;
+    router.push(localePath({ path: items.value[0].to }))
+    return false
   }
-};
+}
 
 onMounted(() => {
   if (userData.value) {
-    actualPage.value = route.path;
+    actualPage.value = route.path
   } else {
-    userData.value = "";
-    router.push(localePath({ path: "/" }));
+    userData.value = ''
+    router.push(localePath({ path: '/' }))
   }
-});
+})
 
 watchEffect(() => {
-  actualPage.value = router.currentRoute.value.path;
-  validateRol(actualPage.value);
-});
+  actualPage.value = router.currentRoute.value.path
+  validateRol(actualPage.value)
+})
 </script>
 <template>
   <div v-if="userData" class="app-wraper">
