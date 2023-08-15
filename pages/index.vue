@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 const { t } = useI18n()
 const localePath = useLocalePath()
 const router = useRouter()
@@ -10,7 +10,7 @@ const loading = useLoading(ref(false))
 
 definePageMeta({ layout: 'login' })
 
-const { handleSubmit, errors, resetForm } = useForm({
+const { handleSubmit, errors, resetForm, meta } = useForm({
   validationSchema: yup.object({
     email: yup
       .string()
@@ -113,12 +113,11 @@ const onSubmit = handleSubmit(async (values) => {
           :to="localePath({ path: 'forgot-password' })"
           >{{ $t('button.forgotPassword') }}</nuxt-link
         >
-
         <Button
-          :type="email && password ? 'submit' : 'button'"
-          :disabled="!email && !password"
+          :type="meta.valid ? 'submit' : 'button'"
+          :disabled="!meta.valid"
           class="mt-6 btn"
-          :class="{ active: email && password }"
+          :class="{ active: meta.valid }"
           :label="$t('button.login')"
         />
       </form>

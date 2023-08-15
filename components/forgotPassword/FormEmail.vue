@@ -6,7 +6,7 @@ const localePath = useLocalePath()
 import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 
-const { handleSubmit, errors, resetForm } = useForm({
+const { handleSubmit, errors, resetForm, meta } = useForm({
   validationSchema: yup.object({
     user: yup
       .string()
@@ -68,10 +68,10 @@ const onSubmit = handleSubmit(async (values) => {
     </span>
 
     <Button
-      :type="user ? 'submit' : 'button'"
-      :disabled="!user"
+      :type="meta.valid ? 'submit' : 'button'"
+      :disabled="!meta.valid"
       class="mt-4 btn"
-      :class="{ active: user }"
+      :class="{ active: meta.valid }"
       :label="$t('button.sendCode')"
     />
   </form>
