@@ -45,7 +45,31 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n'],
 
   // buildModules
-  buildModules: ['@nuxtjs/moment'],
+  buildModules: [
+    '@nuxtjs/moment',
+    [
+      'nuxt-purgecss',
+      {
+        /* Otras opciones */
+        enabled: true,
+        content: [
+          'components/**/*.vue',
+          'layouts/**/*.vue',
+          'pages/**/*.vue',
+          'plugins/**/*.js',
+          'nuxt.config.ts',
+        ],
+        whitelist: [
+          'p-',
+          'pf-',
+          /-(leave|enter|appear)(|-(to|from|active))$/,
+          /^(?!cursor-move).+-move$/,
+          /data-v-.*/,
+        ],
+        whitelistPatterns: [/prime-/, /p-/, /pf-/],
+      },
+    ],
+  ],
 
   // translator
   i18n: {
