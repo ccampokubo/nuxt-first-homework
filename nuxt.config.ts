@@ -69,7 +69,16 @@ export default defineNuxtConfig({
         whitelistPatterns: [/prime-/, /p-/, /pf-/],
       },
     ],
+    '@nuxtjs/eslint-module',
   ],
+
+  // eslint
+  eslint: {
+    extend(config) {
+      // Ejemplo: Habilitar reglas adicionales
+      config.rules['vue/no-unused-components'] = 'error'
+    },
+  },
 
   // translator
   i18n: {

@@ -7,6 +7,7 @@ import { useField, useForm } from 'vee-validate'
 import * as yup from 'yup'
 import { responseApi } from '~/composables/apiServices'
 const loading = useLoading(ref(false))
+const dataTest = ref([])
 
 definePageMeta({ layout: 'login' })
 
