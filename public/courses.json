@@ -1,0 +1,487 @@
+{
+    "items": [
+        {
+            "id": 12,
+            "title": "grabada xhaman pago 22 feb ",
+            "category": "action",
+            "typology": "recorded",
+            "platform": "xhaman",
+            "level": "intermediate",
+            "typePrice": "payment",
+            "price": 150000,
+            "description": "grabada xhaman pago 22 feb ",
+            "releaseDate": null,
+            "transmissionLink": null,
+            "webLink": "",
+            "requirements": "grabada xhaman pago 22 feb ",
+            "objetives": ",,,",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/1a7d8e4605cdf3da18f35f8fe3cdcdc0a6f193dc-1677079091406.mp4",
+            "mediaDuration": 185,
+            "mediaName": "XRecorder_16112022_161650.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/b25dff66bbb5db0ae85f47c97e12058574b39616-1677079092243.jpg",
+            "status": "active",
+            "createdAt": "2023-02-22T15:18:12.297Z",
+            "updatedAt": "2023-02-22T15:18:12.297Z",
+            "instructor": {
+                "fullname": "INSTRUCTOR"
+            },
+            "courseModules": [
+                {
+                    "id": 2,
+                    "mediaDuration": 185,
+                    "courseModuleLessons": [
+                        {
+                            "id": 5,
+                            "mediaDuration": 185,
+                            "typology": "video",
+                            "progressLessons": null
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "mediaDuration": 185,
+                    "courseModuleLessons": [
+                        {
+                            "id": 6,
+                            "mediaDuration": null,
+                            "typology": "reading",
+                            "progressLessons": null
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "mediaDuration": 185,
+                    "courseModuleLessons": [
+                        {
+                            "id": 7,
+                            "mediaDuration": null,
+                            "typology": "reading",
+                            "progressLessons": null
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "mediaDuration": 185,
+                    "courseModuleLessons": [
+                        {
+                            "id": 8,
+                            "mediaDuration": 97,
+                            "typology": "audio",
+                            "progressLessons": null
+                        }
+                    ]
+                }
+            ],
+            "progressCourses": null
+        },
+        {
+            "id": 18,
+            "title": "en vivo xhaman pago 22 feb ",
+            "category": "action",
+            "typology": "live",
+            "platform": "xhaman",
+            "level": "advanced",
+            "typePrice": "payment",
+            "price": 500000,
+            "description": "en vivo xhaman pago 22 feb ",
+            "releaseDate": "2023-05-26T14:25:36.000Z",
+            "transmissionLink": "http://www.youtube.com",
+            "webLink": "",
+            "requirements": "en vivo xhaman pago 22 feb ",
+            "objetives": ",,,",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/3948c3dce52c4b98242cfc910970e2eb9d70a798-1677081286365.mp4",
+            "mediaDuration": 185,
+            "mediaName": "XRecorder_16112022_161650.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/c5250261787677a5a59ead3a00b23c03846d7cef-1677081287378.jpg",
+            "status": "active",
+            "createdAt": "2023-02-22T15:54:47.432Z",
+            "updatedAt": "2023-02-22T15:54:47.432Z",
+            "instructor": {
+                "fullname": "INSTRUCTOR"
+            },
+            "courseModules": [],
+            "progressCourses": null
+        },
+        {
+            "id": 61,
+            "title": "rwerewr",
+            "category": "body",
+            "typology": "recorded",
+            "platform": "both",
+            "level": "basic",
+            "typePrice": "payment",
+            "price": 180000,
+            "description": "rewr",
+            "releaseDate": null,
+            "transmissionLink": null,
+            "webLink": "",
+            "requirements": "rerewr",
+            "objetives": "|",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/22adb81cf7f57e31970d504e0ea2f66b13bfb356-1686245799715.mp4",
+            "mediaDuration": 14,
+            "mediaName": "SeÃºl - 21985.mp4",
+            "mediaQuality": "720px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/748b295c6faea695a4b0148b9d1a415ed257b9f9-1686245799901.jpg",
+            "status": "active",
+            "createdAt": "2023-06-08T17:36:40.071Z",
+            "updatedAt": "2023-11-16T13:21:11.000Z",
+            "instructor": {
+                "fullname": "Cristian Campo"
+            },
+            "courseModules": [
+                {
+                    "id": 19,
+                    "mediaDuration": 7,
+                    "courseModuleLessons": [
+                        {
+                            "id": 24,
+                            "mediaDuration": 45,
+                            "typology": "audio",
+                            "progressLessons": null
+                        }
+                    ]
+                }
+            ],
+            "progressCourses": null
+        },
+        {
+            "id": 51,
+            "title": "\ten vivo ambas pago",
+            "category": "body",
+            "typology": "live",
+            "platform": "both",
+            "level": "advanced",
+            "typePrice": "payment",
+            "price": 300000,
+            "description": "wertyuio",
+            "releaseDate": "2023-06-06T16:00:16.000Z",
+            "transmissionLink": "www.google.com",
+            "webLink": "",
+            "requirements": "retyuio",
+            "objetives": "|",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/7bdb3273bcd0d4d7f99362f431340a2a83c0ec04-1686067077062.mp4",
+            "mediaDuration": 12,
+            "mediaName": "XRecorder_02052023_151308.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/829a1cbe41856d3b855558f9221ea75cab75b51a-1686067077507.jpeg",
+            "status": "active",
+            "createdAt": "2023-06-06T15:57:57.598Z",
+            "updatedAt": "2023-06-06T15:57:57.598Z",
+            "instructor": {
+                "fullname": "Instructor Junio"
+            },
+            "courseModules": [],
+            "progressCourses": null
+        },
+        {
+            "id": 64,
+            "title": "en vivo 8 junio ",
+            "category": "action",
+            "typology": "live",
+            "platform": "xhaman",
+            "level": "intermediate",
+            "typePrice": "payment",
+            "price": 300000,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+            "releaseDate": "2023-06-08T21:00:55.000Z",
+            "transmissionLink": "www.youtube.com",
+            "webLink": "",
+            "requirements": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillu",
+            "objetives": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/43bc60e65e3fe556c8ef4a28d1bac8b52bcc11bd-1686257639951.mp4",
+            "mediaDuration": 43,
+            "mediaName": "Anexo 1.mp4",
+            "mediaQuality": "848px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/e127e425d71774ed499f7431e4827fdd34e64fcf-1686257640205.jpg",
+            "status": "active",
+            "createdAt": "2023-06-08T20:54:00.281Z",
+            "updatedAt": "2023-06-08T20:54:00.281Z",
+            "instructor": {
+                "fullname": "Cristian Campo"
+            },
+            "courseModules": [],
+            "progressCourses": null
+        },
+        {
+            "id": 44,
+            "title": "grabada xhaman pago",
+            "category": "mind",
+            "typology": "recorded",
+            "platform": "xhaman",
+            "level": "intermediate",
+            "typePrice": "payment",
+            "price": 200000,
+            "description": "sadefrgthyjukiloñp´òiytrew",
+            "releaseDate": null,
+            "transmissionLink": null,
+            "webLink": "",
+            "requirements": "dertyuiopñóiuytrewqswert",
+            "objetives": "ewrtuiloñp´`çç´poiuytre",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/17771338c4cac76e1192157ff1318490b897f193-1686065952732.mp4",
+            "mediaDuration": 47,
+            "mediaName": "WhatsApp Video 2023-05-29 at 11.47.42 AM.mp4",
+            "mediaQuality": "640px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/8d30f0e0ba04053e5486d9982f1ec6a3ee38fcea-1686065953154.jpeg",
+            "status": "active",
+            "createdAt": "2023-06-06T15:39:13.285Z",
+            "updatedAt": "2023-06-06T15:39:13.285Z",
+            "instructor": {
+                "fullname": "Instructor Junio"
+            },
+            "courseModules": [
+                {
+                    "id": 13,
+                    "mediaDuration": 79,
+                    "courseModuleLessons": [
+                        {
+                            "id": 16,
+                            "mediaDuration": null,
+                            "typology": "reading",
+                            "progressLessons": null
+                        }
+                    ]
+                }
+            ],
+            "progressCourses": null
+        },
+        {
+            "id": 54,
+            "title": "grabado ambas 8 junio ",
+            "category": "action",
+            "typology": "recorded",
+            "platform": "both",
+            "level": "intermediate",
+            "typePrice": "payment",
+            "price": 120000,
+            "description": "qwer4t56789o0p`",
+            "releaseDate": null,
+            "transmissionLink": null,
+            "webLink": "",
+            "requirements": "qwerklñertyuikl",
+            "objetives": "werthjkee",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/7f5afc235cd1c7879509f1dac3d86d31187cc709-1686232739771.mp4",
+            "mediaDuration": 50,
+            "mediaName": "XRecorder_05062023_160803.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/2c6c6bade0ca89203704efc016113c89304b2365-1686232740316.jpg",
+            "status": "active",
+            "createdAt": "2023-06-08T13:59:00.375Z",
+            "updatedAt": "2023-11-16T13:19:22.000Z",
+            "instructor": {
+                "fullname": "Cristian Campo"
+            },
+            "courseModules": [
+                {
+                    "id": 16,
+                    "mediaDuration": 50,
+                    "courseModuleLessons": [
+                        {
+                            "id": 21,
+                            "mediaDuration": null,
+                            "typology": "reading",
+                            "progressLessons": {
+                                "id": 14,
+                                "isCompleted": true,
+                                "progressTime": 0
+                            }
+                        },
+                        {
+                            "id": 22,
+                            "mediaDuration": null,
+                            "typology": "reading",
+                            "progressLessons": null
+                        },
+                        {
+                            "id": 20,
+                            "mediaDuration": 79,
+                            "typology": "video",
+                            "progressLessons": {
+                                "id": 13,
+                                "isCompleted": true,
+                                "progressTime": 0
+                            }
+                        }
+                    ]
+                }
+            ],
+            "progressCourses": {
+                "id": 6,
+                "isCompleted": false,
+                "progressTime": 0
+            }
+        },
+        {
+            "id": 50,
+            "title": "\ten vivo xhaman pago",
+            "category": "action",
+            "typology": "live",
+            "platform": "xhaman",
+            "level": "intermediate",
+            "typePrice": "payment",
+            "price": 250000,
+            "description": "aswer4t567890'`",
+            "releaseDate": "2023-06-16T11:00:34.000Z",
+            "transmissionLink": "www.google.com",
+            "webLink": "",
+            "requirements": "sdferop",
+            "objetives": "swdertyui",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/e562fa566f81131eb90bcc3378a410ce137e6b53-1686066815095.mp4",
+            "mediaDuration": 15,
+            "mediaName": "Mensaje de Whatsapp.mp4",
+            "mediaQuality": "640px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/22488be5c237aed061af4f333cb8dc6fd607ddfa-1686066815186.jpeg",
+            "status": "active",
+            "createdAt": "2023-06-06T15:53:35.240Z",
+            "updatedAt": "2023-06-06T15:53:35.240Z",
+            "instructor": {
+                "fullname": "Instructor Junio"
+            },
+            "courseModules": [],
+            "progressCourses": null
+        },
+        {
+            "id": 22,
+            "title": "en vivo ambas pago 22 feb  ",
+            "category": "body",
+            "typology": "live",
+            "platform": "both",
+            "level": "intermediate",
+            "typePrice": "payment",
+            "price": 200000,
+            "description": "en vivo ambas pago 22 feb  ",
+            "releaseDate": "2023-05-26T14:25:36.000Z",
+            "transmissionLink": "http://www.google.com",
+            "webLink": "http://www.youtube.com",
+            "requirements": "en vivo ambas pago 22 feb  ",
+            "objetives": ",,,",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/6085fd8041bef3ef66b97b4106595dc0f5f08f17-1677081730767.mp4",
+            "mediaDuration": 185,
+            "mediaName": "XRecorder_16112022_161650.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/e0af147b6efa7e5bdf5052c4cc185dff2a3175d1-1677081731684.jpg",
+            "status": "active",
+            "createdAt": "2023-02-22T16:02:11.804Z",
+            "updatedAt": "2023-02-22T16:02:11.804Z",
+            "instructor": {
+                "fullname": "INSTRUCTOR"
+            },
+            "courseModules": [],
+            "progressCourses": null
+        },
+        {
+            "id": 59,
+            "title": "leccion con audio junio 8 ",
+            "category": "emotion",
+            "typology": "recorded",
+            "platform": "both",
+            "level": "basic",
+            "typePrice": "payment",
+            "price": 140000,
+            "description": "edfghjki",
+            "releaseDate": null,
+            "transmissionLink": null,
+            "webLink": "",
+            "requirements": "ertyuiklo",
+            "objetives": "retyuioñ",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/d6b101bfc11cda88456092d02bd64949b0131a63-1686244265648.mp4",
+            "mediaDuration": 197,
+            "mediaName": "XRecorder_06062023_160520.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/16a4cd753e546ab6b5f557b92052ca67cc875c45-1686244266336.jpg",
+            "status": "active",
+            "createdAt": "2023-06-08T17:11:06.407Z",
+            "updatedAt": "2023-11-16T13:19:51.000Z",
+            "instructor": {
+                "fullname": "Cristian Campo"
+            },
+            "courseModules": [
+                {
+                    "id": 17,
+                    "mediaDuration": 219,
+                    "courseModuleLessons": []
+                }
+            ],
+            "progressCourses": {
+                "id": 7,
+                "isCompleted": false,
+                "progressTime": 0
+            }
+        },
+        {
+            "id": 39,
+            "title": "prueba curso 2",
+            "category": "emotion",
+            "typology": "live",
+            "platform": "xhaman",
+            "level": "basic",
+            "typePrice": "payment",
+            "price": 100000,
+            "description": "lorem ipsum",
+            "releaseDate": "2022-12-11T19:00:17.000Z",
+            "transmissionLink": "https://typeorm.io/working-with-repository",
+            "webLink": null,
+            "requirements": "requirimientos listados",
+            "objetives": "rer,rewrw,rewr,rwer",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/7664a1ada00f017d6a9cf2088dc674b89d6669af-1685469433667.png",
+            "mediaDuration": 10,
+            "mediaName": "Static name",
+            "mediaQuality": "720px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/a5bf76c0284a5cdeba1e00509f14737f4928d49e-1685469436020.png",
+            "status": "active",
+            "createdAt": "2023-05-30T17:57:16.518Z",
+            "updatedAt": "2023-05-30T17:57:16.518Z",
+            "instructor": {
+                "fullname": "Cristian Campo"
+            },
+            "courseModules": [],
+            "progressCourses": null
+        },
+        {
+            "id": 16,
+            "title": "grabada ambas pago 22 feb ",
+            "category": "body",
+            "typology": "recorded",
+            "platform": "both",
+            "level": "advanced",
+            "typePrice": "payment",
+            "price": 500000,
+            "description": "grabada ambas pago 22 feb ",
+            "releaseDate": null,
+            "transmissionLink": null,
+            "webLink": "http://www.google.com",
+            "requirements": "grabada ambas pago 22 feb ",
+            "objetives": ",,,",
+            "mediaLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/6cdcde2775b5a9fc0f79fc6e39083c9a5c0ccfde-1677081040657.mp4",
+            "mediaDuration": 185,
+            "mediaName": "XRecorder_16112022_161650.mp4",
+            "mediaQuality": "1600px",
+            "coverLink": "https://dev-kubo.s3.us-west-2.amazonaws.com/xha/course_covers/795637392151ec902f158850a83a55c3e48137d8-1677081041492.jpg",
+            "status": "active",
+            "createdAt": "2023-02-22T15:50:41.873Z",
+            "updatedAt": "2023-02-22T15:50:41.873Z",
+            "instructor": {
+                "fullname": "INSTRUCTOR"
+            },
+            "courseModules": [
+                {
+                    "id": 7,
+                    "mediaDuration": 185,
+                    "courseModuleLessons": [
+                        {
+                            "id": 10,
+                            "mediaDuration": 97,
+                            "typology": "audio",
+                            "progressLessons": null
+                        }
+                    ]
+                }
+            ],
+            "progressCourses": null
+        }
+    ]
+}
